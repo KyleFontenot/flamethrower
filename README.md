@@ -1,14 +1,5 @@
-# Flamethrower 🔥
-
-Status: Meme
-
-A 2kB zero-config router and prefetcher that makes a static site feel like a blazingly fast SPA.
-
-## Why?
-
-**Problem:** Static sites feel slow and cannot easily share state between pages. This makes it difficult to create a pleasant user experience (UX) with JavaScript libraries because each new page needs to reboot your JS from scratch.
-
-Rather than requiring a frontend framework to take control of the entire DOM, the goal is to make route changes on static sites feel faster, like a SPA.
+# Flamethrower (KyleFontenot's fork)🔥
+A 2kB zero-config router and prefetcher that makes a static site feel like a fast SPA.
 
 ## How?
 
@@ -21,7 +12,7 @@ This means you can have long-lived JavaScript behaviors between navigations. It 
 ## QuickStart
 
 ```
-npm i flamethrower-router
+yarn add flamethrower-router
 ```
 
 ```js
@@ -29,7 +20,7 @@ import flamethrower from 'flamethrower-router';
 const router = flamethrower();
 ```
 
-That's it. Your site now feels blazingly fast.
+> By default, it selects `document.body.querySelectorAll('[flamethrower-preserve]')` 
 
 ## Advanced Usage
 

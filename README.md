@@ -20,7 +20,7 @@ import flamethrower from 'flamethrower-router';
 const router = flamethrower();
 ```
 
-> By default, it selects `document.body.querySelectorAll('[flamethrower-preserve]')` 
+> Under the hood, it preserves elements with this selector `document.body.querySelectorAll('[flamethrower-preserve]')`. so stick in `flamethrower-preserve` for custom persistent elements
 
 ## Advanced Usage
 

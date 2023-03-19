@@ -12,16 +12,24 @@ export function formatNextDocument(html: string): Document {
  * Replace Body
  */
 export function replaceBody(nextDoc: Document): void {
+  // console.log(nextDoc)
   const nodesToPreserve = document.body.querySelectorAll('[flamethrower-preserve]');
+  // console.log('testing!!');
   nodesToPreserve.forEach((oldDocElement) => {
-    let nextDocElement = nextDoc.body.querySelector('[flamethrower-preserve][id="' + oldDocElement.id + '"]');
+    const nextDocElement = nextDoc.body.querySelector('[flamethrower-preserve][id="' + oldDocElement.id + '"]');
     if (nextDocElement) {
       const clone = oldDocElement.cloneNode(true);
       nextDocElement.replaceWith(clone);
     }
   });
+  const base = '[flamethrower-base]';
+  if (!nextDoc.querySelector(base)) {
+    document.body.replaceWith(nextDoc.body);
+  } else {
+    document.querySelector(base).replaceWith(nextDoc.querySelector(base));
+  }
 
-  document.body.replaceWith(nextDoc.body);
+  // document.body.replaceWith(nextDoc.body);
 }
 
 /**

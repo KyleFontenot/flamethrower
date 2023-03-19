@@ -182,6 +182,7 @@ export class Router {
         // Fetch next document
         const res = await fetch(next, { headers: { 'X-Flamethrower': '1' } })
           .then((res) => {
+            console.log(res.body)
             const reader = res.body.getReader();
             const length = parseInt(res.headers.get('Content-Length'));
             let bytesReceived = 0;
@@ -222,8 +223,9 @@ export class Router {
             });
           })
           .then((stream) => new Response(stream, { headers: { 'Content-Type': 'text/html' } }));
-
+        // await console.log(await res.text());
         const html = await res.text();
+        // console.log(html)
         const nextDoc = formatNextDocument(html);
 
         // Merge HEAD

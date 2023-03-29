@@ -57,6 +57,7 @@ export class Router {
       (node) =>
         node.href.includes(document.location.origin) && // on origin url
         !node.href.includes('#') && // not an id anchor
+        !node.hasAttribute('download') && // doesnt have download
         node.href !== (document.location.href || document.location.href + '/') && // not current page
         !this.prefetched.has(node.href), // not already prefetched
     );

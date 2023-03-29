@@ -12,9 +12,7 @@ export function formatNextDocument(html: string): Document {
  * Replace Body
  */
 export function replaceBody(nextDoc: Document): void {
-  // console.log(nextDoc)
   const nodesToPreserve = document.body.querySelectorAll('[flamethrower-preserve]');
-  // console.log('testing!!');
   nodesToPreserve.forEach((oldDocElement) => {
     const nextDocElement = nextDoc.body.querySelector('[flamethrower-preserve][id="' + oldDocElement.id + '"]');
     if (nextDocElement) {
@@ -100,6 +98,7 @@ export function runScripts(): void {
 
   // Run scripts in body
   const bodyScripts = document.body.querySelectorAll('script');
+  // const bodyScripts = document.body.querySelectorAll('script');
   bodyScripts.forEach(replaceAndRunScript);
 }
 
